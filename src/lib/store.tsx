@@ -249,7 +249,7 @@ export function useStore() {
 }
 
 export function estimateShipping(subtotal: number, methodId = "standard") {
-  const method = SHIPPING_METHODS.find((m) => m.id === methodId) ?? SHIPPING_METHODS[0];
+  const method = SHIPPING_METHODS.find((m) => m.id === methodId) ?? SHIPPING_METHODS[0]!;
   if (method.id === "standard" && subtotal >= FREE_SHIPPING_THRESHOLD) {
     return { ...method, price: 0 };
   }
